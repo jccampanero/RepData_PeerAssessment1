@@ -131,7 +131,7 @@ The assignment asks for devise a strategy for filling in all of the missing valu
 
 Let's use the average of the five minutes interval accross all days to fill the missing values:
 
-```{r results='hide'}
+```{r results='hide', message=FALSE}
 library(data.table)
 na.filled.activity <- data.table(activity)
 na.filled.activity[, per.interval.mean := mean(steps, na.rm = TRUE), by = interval]

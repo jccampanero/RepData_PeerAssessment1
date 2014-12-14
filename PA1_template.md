@@ -187,14 +187,6 @@ Let's use the average of the five minutes interval accross all days to fill the 
 
 ```r
 library(data.table)
-```
-
-```
-## data.table 1.9.4  For help type: ?data.table
-## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
-```
-
-```r
 na.filled.activity <- data.table(activity)
 na.filled.activity[, per.interval.mean := mean(steps, na.rm = TRUE), by = interval]
 na.filled.activity[is.na(steps), steps := as.integer(round(per.interval.mean))]

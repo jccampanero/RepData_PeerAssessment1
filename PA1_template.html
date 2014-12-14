@@ -357,13 +357,7 @@ max.fivemin.interval &lt;- fivemin.interval.activity[max.fivemin.interval.index,
 <p>Let&#39;s use the average of the five minutes interval accross all days to fill the missing values:</p>
 
 <pre><code class="r">library(data.table)
-</code></pre>
-
-<pre><code>## data.table 1.9.4  For help type: ?data.table
-## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
-</code></pre>
-
-<pre><code class="r">na.filled.activity &lt;- data.table(activity)
+na.filled.activity &lt;- data.table(activity)
 na.filled.activity[, per.interval.mean := mean(steps, na.rm = TRUE), by = interval]
 na.filled.activity[is.na(steps), steps := as.integer(round(per.interval.mean))]
 </code></pre>
